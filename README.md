@@ -30,7 +30,6 @@ A flow log can capture information such as:
 •	Traffic acceptance or rejection (ACCEPT or REJECT)
 <img width="1" height="1" alt="image" src="https://github.com/user-attachments/assets/cfd85cb5-8020-4465-89d7-66ee7c5cb68c" />
 
-<img width="1" height="1" alt="image" src="https://github.com/user-attachments/assets/60902527-bcce-425d-bd07-97f6728f3c1f" />
 
 AWS Resources deploy for the project:
 ✅VPC                         
