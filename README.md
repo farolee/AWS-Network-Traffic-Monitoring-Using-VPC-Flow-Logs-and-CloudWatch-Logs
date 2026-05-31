@@ -38,9 +38,7 @@ AWS Resources deploy for the project:
 ✅Ec2 Instances
 ✅Load Balancer
 ✅Iam Policy for Publishing VPC flow logs into Cloudwatch Logs.
-
-✅ 
-CloudWatch Agent configuration file
+✅ CloudWatch Agent configuration file
 ✅ 
 How to attach this IAM role to EC2
 ✅ 
