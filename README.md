@@ -30,3 +30,18 @@ A flow log can capture information such as:
 •	Traffic acceptance or rejection (ACCEPT or REJECT)
 <img width="1" height="1" alt="image" src="https://github.com/user-attachments/assets/cfd85cb5-8020-4465-89d7-66ee7c5cb68c" />
 
+AWS Resources deploy for the project:
+✅VPC                         ✅
+✅Subnets
+✅Internet Gateway
+✅VPC Flow Log
+✅Ec2 Instances
+✅Load Balancer
+✅Iam Policy for Publishing VPC flow logs into Cloudwatch Logs.
+
+✅ 
+CloudWatch Agent configuration file
+✅ 
+How to attach this IAM role to EC2
+✅ 
+How logs appear in CloudWatch step-by-step
