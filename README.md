@@ -13,7 +13,7 @@ insights within an AWS VPC architecture.
 
 Reference Architecture
 <img width="1" height="1" alt="image" src="https://github.com/user-attachments/assets/60902527-bcce-425d-bd07-97f6728f3c1f" />
-<img width="1018" height="643" alt="VPC FLOW LOG pROJECTS" src="https://github.com/user-attachments/assets/f4e804dd-b188-495b-8b03-56ca2fdeebd7" />
+<img width="509" height="322" alt="VPC FLOW LOG pROJECTS" src="https://github.com/user-attachments/assets/6d6a7ef7-7a2e-4640-b87c-817b9c089dd8" />
 
 
 VPC Flow Logs capture information about the IP network traffic going to and 
