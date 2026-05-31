@@ -36,7 +36,7 @@ AWS Resources deploy for the project:
 ✅Subnets
 ✅Internet Gateway
 ✅VPC Flow Log
-✅Ec2 Instances
+✅EC2 Instances
 ✅Load Balancer
 ✅Iam Policy for Publishing VPC flow logs into Cloudwatch Logs.
 ✅ CloudWatch Agent configuration file
