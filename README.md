@@ -13,7 +13,7 @@ insights within an AWS VPC architecture.
   Reference Architecture 
              
 <img width="1" height="1" alt="image" src="https://github.com/user-attachments/assets/60902527-bcce-425d-bd07-97f6728f3c1f" />
-<img width="851" height="622" alt="vpc flow log" src="https://github.com/user-attachments/assets/d04ce98c-fc66-4705-afc5-48a6f49dde6a" />
+<img width="651" height="422" alt="vpc flow log" src="https://github.com/user-attachments/assets/d04ce98c-fc66-4705-afc5-48a6f49dde6a" />
 
 
 
