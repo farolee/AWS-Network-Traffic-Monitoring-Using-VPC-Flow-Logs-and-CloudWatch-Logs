@@ -10,7 +10,7 @@ Key components include configuring VPC Flow Logs, integrating with CloudWatch
 Logs, and analyzing traffic patterns for security monitoring and operational 
 insights within an AWS VPC architecture.
 
-Reference Architecture
+  Reference Architecture
 <img width="1" height="1" alt="image" src="https://github.com/user-attachments/assets/60902527-bcce-425d-bd07-97f6728f3c1f" />
 <img width="709" height="422" alt="VPC FLOW LOG pROJECTS" src="https://github.com/user-attachments/assets/6d6a7ef7-7a2e-4640-b87c-817b9c089dd8" />
 
