@@ -1,5 +1,5 @@
 # AWS-Network-Traffic-Monitoring-Using-VPC-Flow-Logs-and-CloudWatch-Logs
-Monitoring VPC Flow Logs in Amazon CloudWatch Log Groups to Analyze Network Traffic and Enhance Security Visibility
+(Monitoring VPC Flow Logs in Amazon CloudWatch Log Groups to Analyze Network Traffic and Enhance Security Visibility)
 <img width="1" height="1" alt="image" src="https://github.com/user-attachments/assets/60902527-bcce-425d-bd07-97f6728f3c1f" />
 
 This project demonstrates how to enable and monitor VPC Flow Logs within an 
@@ -24,4 +24,5 @@ A flow log can capture information such as:
 •	Number of packets transferred 
 •	Bytes transferred 
 •	Traffic acceptance or rejection (ACCEPT or REJECT)
+<img width="1" height="1" alt="image" src="https://github.com/user-attachments/assets/cfd85cb5-8020-4465-89d7-66ee7c5cb68c" />
 
