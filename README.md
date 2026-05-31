@@ -11,6 +11,10 @@ Key components include configuring VPC Flow Logs, integrating with CloudWatch
 Logs, and analyzing traffic patterns for security monitoring and operational 
 insights within an AWS VPC architecture.
 
+Reference Architecture
+<img width="1" height="1" alt="image" src="https://github.com/user-attachments/assets/60902527-bcce-425d-bd07-97f6728f3c1f" />
+<img width="1018" height="643" alt="VPC FLOW LOG pROJECTS" src="https://github.com/user-attachments/assets/f4e804dd-b188-495b-8b03-56ca2fdeebd7" />
+
 
 VPC Flow Logs capture information about the IP network traffic going to and 
 from network interfaces in your VPC. They help you monitor, troubleshoot, and 
