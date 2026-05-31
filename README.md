@@ -31,7 +31,7 @@ A flow log can capture information such as:
 <img width="1" height="1" alt="image" src="https://github.com/user-attachments/assets/cfd85cb5-8020-4465-89d7-66ee7c5cb68c" />
 
 AWS Resources deploy for the project:
-✅VPC                         ✅
+✅VPC                         
 ✅Subnets
 ✅Internet Gateway
 ✅VPC Flow Log
