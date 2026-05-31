@@ -45,3 +45,30 @@ AWS Resources deploy for the project:
 How to attach this IAM role to EC2
 ✅ 
 How logs appear in CloudWatch step-by-step
+
+
+{
+  "Version":"2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents",
+        "logs:DescribeLogGroups",
+        "logs:DescribeLogStreams"
+      ],
+      "Resource": "*",
+      "Condition": {
+    "StringEquals": {
+        "aws:SourceAccount": "954976289682"
+    },
+    "ArnLike": {
+        "aws:SourceArn": "arn:aws:ec2:us-east-1:954976289682:vpc-flow-log/FaroVPC-log"
+    }
+}
+    }
+  ]
+}   
+
