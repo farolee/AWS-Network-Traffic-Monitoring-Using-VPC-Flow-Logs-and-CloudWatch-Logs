@@ -29,8 +29,135 @@ A flow log can capture information such as:
 •	Number of packets transferred 
 •	Bytes transferred 
 •	Traffic acceptance or rejection (ACCEPT or REJECT)
+
+STEP.
 <img width="1" height="1" alt="image" src="https://github.com/user-attachments/assets/cfd85cb5-8020-4465-89d7-66ee7c5cb68c" />
 
 <img width="1687" height="653" alt="Two Faro EC2 Runing" src="https://github.com/user-attachments/assets/2f64d170-c67b-4abf-b176-5af3c98b4977" />
 
+This project demonstrates how to monitor network traffic within an AWS VPC by enabling VPC Flow Logs and publishing them to CloudWatch Logs for analysis, troubleshooting, and security monitoring.
+
+Architecture
+Amazon VPC
+Public and Private Subnets
+EC2 Instances
+VPC Flow Logs
+CloudWatch Log Group
+
+
+
+
+
+IAM Role and Policy
+Step 1: Create a CloudWatch Log Group
+Navigate to CloudWatch Console.
+Select Logs → Log Groups.
+Click Create Log Group.
+Enter a name:
+BeeQ-VPCFlowLogs
+Click Create.
+
+Step 2: Create an IAM Role for VPC Flow Logs
+Navigate to IAM Console.
+Select Roles → Create Role.
+Choose:
+AWS Service
+VPC Flow Logs
+Attach permissions to allow publishing logs to CloudWatch.
+Name the role:
+BeeQ-VPCFlowLogs-Role
+Create the role.
+
+
+
+
+
+
+Step 3: Create the VPC Flow Log
+Navigate to VPC Dashboard.
+Select Your VPCs.
+Choose the target VPC:
+BeeQVPC
+Select Flow Logs tab.
+Click Create Flow Log.
+
+Configure:
+
+Setting	Value
+Filter	All
+Destination	Send to CloudWatch Logs
+Log Group	BeeQ-VPCFlowLogs
+IAM Role	BeeQ-VPCFlowLogs-Role
+Traffic Type	All
+Click Create Flow Log.
+Step 4: Generate Network Traffic
+
+To generate log entries:
+
+Launch EC2 instances.
+Connect via SSH.
+Ping www.google ,www.facebook.com , www.cnn.com  ,www.rccg.com
+from the Two Ec2 Instances.
+
+
+Access websites from the instances.
+Perform ping and network connectivity tests.
+Generate inbound and outbound traffic.
+Step 5: Verify Logs in CloudWatch
+Open CloudWatch Console.
+Navigate to Log Groups.
+Open:
+BeeQ-VPCFlowLogs
+Review incoming flow log records.
+
+Sample Log Entry:
+
+2 123456789012 eni-1234567890abcdef 10.0.1.10 8.8.8.8 443 52344 6 10 840 1717000000 1717000060 ACCEPT OK
+Step 6: Analyze Traffic Patterns
+
+Review:
+
+Accepted connections
+Rejected connections
+Source and destination IP addresses
+Protocols used
+Port activity
+Traffic volume
+Step 7: Create CloudWatch Metric Filters
+Open CloudWatch.
+Navigate to:
+Logs → Log Groups
+Select:
+BeeQ-VPCFlowLogs
+Create Metric Filters for:
+REJECT traffic
+SSH activity (Port 22)
+RDP activity (Port 3389)
+Step 8: Create CloudWatch Alarms
+
+Create alarms to notify administrators when:
+
+Excessive rejected traffic occurs.
+Unusual network activity is detected.
+Traffic exceeds predefined thresholds.
+Step 9: (Optional) Archive Logs to Amazon S3
+
+For long-term retention:
+
+Create an S3 bucket.
+Configure Flow Logs to deliver logs to S3.
+Enable lifecycle policies for cost optimization.
+Project Outcomes
+Improved network visibility.
+Enhanced security monitoring.
+Faster troubleshooting of connectivity issues.
+Centralized log management using CloudWatch.
+Audit-ready network traffic records.
+AWS Services Used
+Amazon VPC
+Amazon EC2
+Amazon CloudWatch Logs
+AWS Identity and Access Management (IAM)
+Amazon S3 (Optional)
+VPC Flow Logs
 
