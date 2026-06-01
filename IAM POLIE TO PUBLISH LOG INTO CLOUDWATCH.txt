@@ -1,7 +1,5 @@
 
-The IAM role that's associated with your flow log must have sufficient permissions to publish flow logs to the specified log group in CloudWatch Logs. The IAM role must belong to your AWS account.
-
-The IAM policy that's attached to your IAM role must include at least the following permissions.
+The IAM role that publish vpc flow logs into Faro_Log_Group in CloudWatch Logs. The IAM role must belong to your AWS account.
 
 
 
@@ -23,8 +21,7 @@ The IAM policy that's attached to your IAM role must include at least the follow
 }   
 
 
-Assume Role Policy for Trusted entity
-Ensure that your role has the following trust policy, which allows the flow logs service to assume the role.
+Assume Role Policy for Trusted entity, which allows the flow logs service to assume the role.
 {
   "Version":"2012-10-17",
   "Statement": [
