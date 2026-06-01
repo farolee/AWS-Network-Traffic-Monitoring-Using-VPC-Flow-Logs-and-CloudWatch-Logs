@@ -47,6 +47,29 @@ How to attach this IAM role to EC2
 How logs appear in CloudWatch step-by-step
 
 
+The IAM role that's associated with your flow log must have sufficient permissions to publish flow logs to the specified log group in CloudWatch Logs. The IAM role must belong to your AWS account.
+
+The IAM policy that's attached to your IAM role must include at least the following permissions.
+
+
+
+{
+  "Version":"2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+The IAM role that's associated with your flow log must have sufficient permissions to publish flow logs to the specified log group in CloudWatch Logs. The IAM role must belong to your AWS account.
+
+The IAM policy that's attached to your IAM role must include at least the following permissions.
+
+
+The IAM role that's associated with your flow log must have sufficient permissions to publish flow logs to the specified log group in CloudWatch Logs. The IAM role must belong to your AWS account.
+
+The IAM policy that's attached to your IAM role must include at least the following permissions.
+
+
+
 {
   "Version":"2012-10-17",
   "Statement": [
@@ -59,16 +82,11 @@ How logs appear in CloudWatch step-by-step
         "logs:DescribeLogGroups",
         "logs:DescribeLogStreams"
       ],
-      "Resource": "*",
-      "Condition": {
-    "StringEquals": {
-        "aws:SourceAccount": "954976289682"
-    },
-    "ArnLike": {
-        "aws:SourceArn": "arn:aws:ec2:us-east-1:954976289682:vpc-flow-log/FaroVPC-log"
-    }
-}
+      "Resource": "*"
     }
   ]
 }   
+
+
+
 
