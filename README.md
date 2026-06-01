@@ -31,4 +31,6 @@ A flow log can capture information such as:
 •	Traffic acceptance or rejection (ACCEPT or REJECT)
 <img width="1" height="1" alt="image" src="https://github.com/user-attachments/assets/cfd85cb5-8020-4465-89d7-66ee7c5cb68c" />
 
+<img width="1687" height="653" alt="Two Faro EC2 Runing" src="https://github.com/user-attachments/assets/2f64d170-c67b-4abf-b176-5af3c98b4977" />
+
 
