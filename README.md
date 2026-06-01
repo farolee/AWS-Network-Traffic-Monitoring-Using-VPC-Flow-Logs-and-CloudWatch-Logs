@@ -98,6 +98,7 @@ Launch EC2 instances.
 Connect via SSH.
 Ping www.google ,www.facebook.com , www.cnn.com  ,www.rccg.com
 from the Two Ec2 Instances.
+<img width="1887" height="753" alt="Two Faro EC2 Runing" src="https://github.com/user-attachments/assets/f5703435-bc54-46e3-8d51-7ed2f864ff1a" />
 
 
 Access websites from the instances.
@@ -114,6 +115,7 @@ Sample Log Entry:
 
 2 123456789012 eni-1234567890abcdef 10.0.1.10 8.8.8.8 443 52344 6 10 840 1717000000 1717000060 ACCEPT OK
 Step 6: Analyze Traffic Patterns
+<img width="1919" height="1060" alt="Network interface for the two EC2 (logs)" src="https://github.com/user-attachments/assets/fcf70973-78fe-4c34-8703-10789e4b4b17" />
 
 Review:
 
