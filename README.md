@@ -37,124 +37,64 @@ and analysis.
 
 <img width="1893" height="919" alt="vpc-logs drom faro" src="https://github.com/user-attachments/assets/00967a84-2883-4023-9ac2-9d0a45be7cdd" />
 
+
 STEP 2.
 After creating CloudWatch Log Group and configuring the VPC Flow Log,the next steps are:
-The IAM policy provides the permissions required for Amazon VPC Flow Logs to publish logs to Amazon CloudWatch Logs.
+The IAM policy provides the permissions required for Amazon VPC Flow Logs to publish logs
+to Amazon CloudWatch Logs.
 
 -Create an IAM role that allows VPC Flow Logs to publish logs to CloudWatch.
 
-The following IAM policy follows the principle of least privilege by granting access only to the Faro-ec2-Logs CloudWatch Log Group.
-
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "logs:CreateLogStream",
-        "logs:PutLogEvents",
-        "logs:DescribeLogGroups",
-        "logs:DescribeLogStreams"
-      ],
-      "Resource": [
-        "arn:aws:logs:us-east-1:123456789012:log-group:Faro-ec2-Logs:*"
-      ]
-    }
-  ]
-}
-**NOTE:** It is a best practice to follow the principle of least privilege by restricting access to only the required log group
-
--And Attach a policy with permissions such as:
-  Trusted Entity: 
- {
-  "Version":"2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Principal": {
-        "Service": "vpc-flow-logs.amazonaws.com"
-      },
-      "Action": "sts:AssumeRole"
-    }
-  ]
-} 
-
-
-
-
-<img width="1" height="1" alt="image" src="https://github.com/user-attachments/assets/cfd85cb5-8020-4465-89d7-66ee7c5cb68c" />
-
-<img width="1687" height="653" alt="Two Faro EC2 Runing" src="https://github.com/user-attachments/assets/2f64d170-c67b-4abf-b176-5af3c98b4977" />
-
-This project demonstrates how to monitor network traffic within an AWS VPC by enabling VPC Flow Logs and publishing them to CloudWatch Logs for analysis, troubleshooting, and security monitoring.
-
-Architecture
-Amazon VPC
-Public and Private Subnets
-EC2 Instances
-VPC Flow Logs
-CloudWatch Log Group
-
-
-
-
-
-IAM Role and Policy
-Step 1: Create a CloudWatch Log Group
-Navigate to CloudWatch Console.
-Select Logs → Log Groups.
-Click Create Log Group.
-Enter a name:
-BeeQ-VPCFlowLogs
-Click Create.
-
-Step 2: Create an IAM Role for VPC Flow Logs
-Navigate to IAM Console.
-Select Roles → Create Role.
-Choose:
-AWS Service
-VPC Flow Logs
-Attach permissions to allow publishing logs to CloudWatch.
-Name the role:
-BeeQ-VPCFlowLogs-Role
-Create the role.
 
 
 
 
 
 
-Step 3: Create the VPC Flow Log
-Navigate to VPC Dashboard.
-Select Your VPCs.
-Choose the target VPC:
-BeeQVPC
-Select Flow Logs tab.
-Click Create Flow Log.
 
-Configure:
 
-Setting	Value
-Filter	All
-Destination	Send to CloudWatch Logs
-Log Group	BeeQ-VPCFlowLogs
-IAM Role	BeeQ-VPCFlowLogs-Role
-Traffic Type	All
-Click Create Flow Log.
-Step 4: Generate Network Traffic
+STEP 3.
+Two Amazon EC2 instances  were created within the Faro_VPC to generate network traffic for
+testing and validating VPC Flow Logs integration with Amazon CloudWatch Logs.
 
-To generate log entries:
+
+
+
+- Created a VPC named **Faro_VPC** to host the cloud networking environment.
+- Launched two EC2 instances**Faro-EC2-(001)** and **Faro-EC2-(002)** within the VPC
+  to simulate real network communication.
+- Configured security groups to control inbound and outbound traffic between two EC2 instances.
+- Network traffic was between EC2 instances using ping, SSH, and basic network tools.
+
+
+STEP 4.
 
 Launch EC2 instances.
-Connect via SSH.
-Ping www.google ,www.facebook.com , www.cnn.com  ,www.rccg.com
-from the Two Ec2 Instances.
+- Connect via SSH.
+- Ping www.google ,www.facebook.com , www.cnn.com  ,www.rccg.com
+- from the Two EC2 Instances
+
 <img width="1887" height="753" alt="Two Faro EC2 Runing" src="https://github.com/user-attachments/assets/f5703435-bc54-46e3-8d51-7ed2f864ff1a" />
 
 
-Access websites from the instances.
-Perform ping and network connectivity tests.
-Generate inbound and outbound traffic.
+- The enabled VPC Flow Logs **(VPC-Flow-Log-FARO)** captured all VPC network traffic.
+- Configured Amazon CloudWatch Logs as the destination for flow log delivery.
+- The CloudWatch Log Group named **Faro-ec2-Logs** stores and organized the log data.
+- Attached an IAM role with required permissions to allow VPC Flow Logs to publish logs.
+- Verified successful log ingestion by checking CloudWatch log streams.
+- Observed and analyzed ACCEPT and REJECT network traffic events between EC2 instances.
+- Used CloudWatch Logs Insights to query and analyze captured network traffic data.
+
+
+ - **Interface ID** for the two EC2 Instances: Faro-EC2-(001) : **eni-03dfc15da123bd3d4**
+    -    Faro-EC2-(002) : **eni-04acb2a0f6c5f371d**
+
+
+<img width="1919" height="1059" alt="Network Interface for the two EC2" src="https://github.com/user-attachments/assets/7045392e-9ed9-41a0-a83e-ba9636abe0f1" />
+
+
+
+
 Step 5: Verify Logs in CloudWatch
 Open CloudWatch Console.
 Navigate to Log Groups.
