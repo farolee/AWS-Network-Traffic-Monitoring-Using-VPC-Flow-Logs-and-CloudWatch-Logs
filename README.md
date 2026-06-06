@@ -30,6 +30,56 @@ insights within an AWS VPC architecture.
 
 
 STEP 1.
+Create an Amazon CloudWatch Log Group named **Faro-ec2-Logs** to serve as the destination 
+for VPC Flow Logs. Configure the VPC Flow Log **VPC-Flow-Log-FARO** for **Faro_VPC** to 
+publish its network traffic logs to this CloudWatch Log Group for centralized monitoring 
+and analysis.
+
+<img width="1893" height="919" alt="vpc-logs drom faro" src="https://github.com/user-attachments/assets/00967a84-2883-4023-9ac2-9d0a45be7cdd" />
+
+STEP 2.
+After creating CloudWatch Log Group and configuring the VPC Flow Log,the next steps are:
+The IAM policy provides the permissions required for Amazon VPC Flow Logs to publish logs to Amazon CloudWatch Logs.
+
+-Create an IAM role that allows VPC Flow Logs to publish logs to CloudWatch.
+
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogStream",
+        "logs:PutLogEvents",
+        "logs:DescribeLogGroups",
+        "logs:DescribeLogStreams"
+      ],
+      "Resource": [
+        "arn:aws:logs:us-east-1:954976289682:log-group:Faro-ec2-Logs:*"
+      ]
+    }
+  ]
+}
+**NOTE:** It is a best practice to follow the principle of least privilege by restricting access to only the required log group
+
+-And Attach a policy with permissions such as:
+  Trusted Entity: 
+ {
+  "Version":"2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "vpc-flow-logs.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+} 
+
+
+
+
 <img width="1" height="1" alt="image" src="https://github.com/user-attachments/assets/cfd85cb5-8020-4465-89d7-66ee7c5cb68c" />
 
 <img width="1687" height="653" alt="Two Faro EC2 Runing" src="https://github.com/user-attachments/assets/2f64d170-c67b-4abf-b176-5af3c98b4977" />
