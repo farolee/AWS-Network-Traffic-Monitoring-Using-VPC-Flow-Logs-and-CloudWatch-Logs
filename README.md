@@ -17,6 +17,27 @@ insights within an AWS VPC architecture.
 <img width="651" height="422" alt="vpc flow log" src="https://github.com/user-attachments/assets/d04ce98c-fc66-4705-afc5-48a6f49dde6a" />
 
 
+VPC Flow Logs Capture the Following Information
+Source IP Address – Identifies the origin of the network traffic.
+Destination IP Address – Identifies the target of the network traffic.
+Source Port – Shows the port number used by the originating application or service.
+Destination Port – Indicates the port number on the receiving application or service.
+Protocol – Records the network protocol in use, such as:
+TCP
+UDP
+ICMP
+Packet Count – Displays the total number of packets transferred during the connection.
+Bytes Transferred – Measures the amount of data exchanged between the source and destination.
+Traffic Action – Indicates whether the traffic was:
+ACCEPT – Traffic was allowed by the network configuration.
+REJECT – Traffic was denied by the network configuration.
+
+This format is concise, professional, and well-suited for GitHub project documentation.
+
+
+
+
+
 A flow log can capture information such as:
 •	Source IP address 
 •	Destination IP address 
