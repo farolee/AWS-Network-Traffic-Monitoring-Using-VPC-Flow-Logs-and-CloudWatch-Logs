@@ -45,22 +45,56 @@ to Amazon CloudWatch Logs.
 
 -Create an IAM role that allows VPC Flow Logs to publish logs to CloudWatch.
 
+The IAM role that publish vpc flow logs into Faro_Log_Group in CloudWatch Logs. The IAM role belong to **AWS account no :954976289682**
+
+This policy allows AWS resources to publish VPC Flow Logs into Amazon CloudWatch Logs.
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents",
+        "logs:DescribeLogGroups",
+        "logs:DescribeLogStreams"
+      ],
+      "Resource": "arn:aws:logs:us-east-1:954976289682:log-group:Faro-ec2-Logs:*"
+    }
+  ]
+}
+
+This trust policy allows the VPC Flow Logs service to assume the IAM role
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "vpc-flow-logs.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
 
 
-
-
-
-
+```
 
 
 STEP 3.
 Two Amazon EC2 instances  were created within the Faro_VPC to generate network traffic for
 testing and validating VPC Flow Logs integration with Amazon CloudWatch Logs.
 
+<img width="1887" height="753" alt="Two Faro EC2 Runing" src="https://github.com/user-attachments/assets/934b8d36-0cd2-4f70-ad07-f9054f9eaa0b" />
 
 
 
-- Created a VPC named **Faro_VPC** to host the cloud networking environment.
+
+- Created  VPC named **Faro_VPC** to host the cloud networking environment.
 - Launched two EC2 instances**Faro-EC2-(001)** and **Faro-EC2-(002)** within the VPC
   to simulate real network communication.
 - Configured security groups to control inbound and outbound traffic between two EC2 instances.
@@ -73,10 +107,6 @@ Launch EC2 instances.
 - Connect via SSH.
 - Ping www.google ,www.facebook.com , www.cnn.com  ,www.rccg.com
 - from the Two EC2 Instances
-
-<img width="1887" height="753" alt="Two Faro EC2 Runing" src="https://github.com/user-attachments/assets/f5703435-bc54-46e3-8d51-7ed2f864ff1a" />
-
-
 - The enabled VPC Flow Logs **(VPC-Flow-Log-FARO)** captured all VPC network traffic.
 - Configured Amazon CloudWatch Logs as the destination for flow log delivery.
 - The CloudWatch Log Group named **Faro-ec2-Logs** stores and organized the log data.
@@ -86,11 +116,13 @@ Launch EC2 instances.
 - Used CloudWatch Logs Insights to query and analyze captured network traffic data.
 
 
+<img width="1919" height="1059" alt="Network Interface for the two EC2" src="https://github.com/user-attachments/assets/7045392e-9ed9-41a0-a83e-ba9636abe0f1" />
+
+
  - **Interface ID** for the two EC2 Instances: Faro-EC2-(001) : **eni-03dfc15da123bd3d4**
     -    Faro-EC2-(002) : **eni-04acb2a0f6c5f371d**
 
 
-<img width="1919" height="1059" alt="Network Interface for the two EC2" src="https://github.com/user-attachments/assets/7045392e-9ed9-41a0-a83e-ba9636abe0f1" />
 
 
 
@@ -104,53 +136,20 @@ Review incoming flow log records.
 
 Sample Log Entry:
 
-2 123456789012 eni-1234567890abcdef 10.0.1.10 8.8.8.8 443 52344 6 10 840 1717000000 1717000060 ACCEPT OK
 Step 6: Analyze Traffic Patterns
 <img width="1919" height="1060" alt="Network interface for the two EC2 (logs)" src="https://github.com/user-attachments/assets/fcf70973-78fe-4c34-8703-10789e4b4b17" />
 
-Review:
 
-Accepted connections
-Rejected connections
-Source and destination IP addresses
-Protocols used
-Port activity
-Traffic volume
-Step 7: Create CloudWatch Metric Filters
-Open CloudWatch.
-Navigate to:
-Logs → Log Groups
-Select:
-BeeQ-VPCFlowLogs
-Create Metric Filters for:
-REJECT traffic
-SSH activity (Port 22)
-RDP activity (Port 3389)
-Step 8: Create CloudWatch Alarms
+AWS Cloudwatch Dashboard 
 
-Create alarms to notify administrators when:
+<img width="1907" height="980" alt="Cloud watch Summary" src="https://github.com/user-attachments/assets/a80c56df-b7f2-4f5a-acdc-9116ca5c1c3c" />
 
-Excessive rejected traffic occurs.
-Unusual network activity is detected.
-Traffic exceeds predefined thresholds.
-Step 9: (Optional) Archive Logs to Amazon S3
 
-For long-term retention:
 
-Create an S3 bucket.
-Configure Flow Logs to deliver logs to S3.
-Enable lifecycle policies for cost optimization.
-Project Outcomes
-Improved network visibility.
-Enhanced security monitoring.
-Faster troubleshooting of connectivity issues.
-Centralized log management using CloudWatch.
-Audit-ready network traffic records.
-AWS Services Used
-Amazon VPC
-Amazon EC2
-Amazon CloudWatch Logs
-AWS Identity and Access Management (IAM)
-Amazon S3 (Optional)
-VPC Flow Logs
+AWS Cloudwatch Dashboard 
+
+<img width="1919" height="1041" alt="Cloudwatch Logs Dashboard 2" src="https://github.com/user-attachments/assets/a660b435-a81c-43ba-9e19-61ba2dddf6e1" />
+
+
+
 
