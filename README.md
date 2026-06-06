@@ -43,6 +43,8 @@ The IAM policy provides the permissions required for Amazon VPC Flow Logs to pub
 
 -Create an IAM role that allows VPC Flow Logs to publish logs to CloudWatch.
 
+The following IAM policy follows the principle of least privilege by granting access only to the Faro-ec2-Logs CloudWatch Log Group.
+
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -55,7 +57,7 @@ The IAM policy provides the permissions required for Amazon VPC Flow Logs to pub
         "logs:DescribeLogStreams"
       ],
       "Resource": [
-        "arn:aws:logs:us-east-1:954976289682:log-group:Faro-ec2-Logs:*"
+        "arn:aws:logs:us-east-1:123456789012:log-group:Faro-ec2-Logs:*"
       ]
     }
   ]
