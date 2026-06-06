@@ -35,7 +35,10 @@ for VPC Flow Logs. Configure the VPC Flow Log **VPC-Flow-Log-FARO** for **Faro_V
 publish its network traffic logs to this CloudWatch Log Group for centralized monitoring 
 and analysis.
 
+
 <img width="1893" height="919" alt="vpc-logs drom faro" src="https://github.com/user-attachments/assets/00967a84-2883-4023-9ac2-9d0a45be7cdd" />
+
+
 
 
 STEP 2.
@@ -89,6 +92,8 @@ STEP 3.
 Two Amazon EC2 instances  were created within the Faro_VPC to generate network traffic for
 testing and validating VPC Flow Logs integration with Amazon CloudWatch Logs.
 
+
+
 <img width="1887" height="753" alt="Two Faro EC2 Runing" src="https://github.com/user-attachments/assets/934b8d36-0cd2-4f70-ad07-f9054f9eaa0b" />
 
 
@@ -117,6 +122,8 @@ Launch EC2 instances.
 
 
 <img width="1919" height="1059" alt="Network Interface for the two EC2" src="https://github.com/user-attachments/assets/7045392e-9ed9-41a0-a83e-ba9636abe0f1" />
+
+
 
 
  - **Interface ID** for the two EC2 Instances: Faro-EC2-(001) : **eni-03dfc15da123bd3d4**
@@ -149,6 +156,20 @@ AWS Cloudwatch Dashboard
 AWS Cloudwatch Dashboard 
 
 <img width="1919" height="1041" alt="Cloudwatch Logs Dashboard 2" src="https://github.com/user-attachments/assets/a660b435-a81c-43ba-9e19-61ba2dddf6e1" />
+
+
+
+
+**OPTION FOR STORING THE VPC FLOW LOGS**
+ 
+-  Another way of options for storing VPC Flow Logs in Amazon S3 : Direct delivery to Amazon S3
+-  VPC Flow Logs are sent directly to an S3 bucket and stored as compressed files. This is best for long-term storage, compliance, and cost-effective archiving.
+
+
+-  CloudWatch Logs to S3 export:  Flow logs are first stored in CloudWatch Logs and then exported to an S3 bucket.
+-  This is useful for real-time monitoring combined with long-term storage.
+
+
 
 
 
