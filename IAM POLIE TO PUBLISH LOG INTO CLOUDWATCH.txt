@@ -14,11 +14,13 @@ The IAM role that publish vpc flow logs into Faro_Log_Group in CloudWatch Logs. 
         "logs:PutLogEvents",
         "logs:DescribeLogGroups",
         "logs:DescribeLogStreams"
-      ],
-      "Resource": "*"
+     ],
+      "Resource": [
+        "arn:aws:logs:us-east-1:954976289682:log-group:Faro-ec2-Logs:*"
+      ]
     }
   ]
-}   
+}
 
 
 Assume Role Policy for Trusted entity, which allows the flow logs service to assume the role.
